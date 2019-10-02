@@ -10,7 +10,7 @@
 
 namespace App1.Pages
 {
-    partial class ListSongs : global::Windows.UI.Xaml.Controls.Page
+    partial class ListSong : global::Windows.UI.Xaml.Controls.Page
     {
 
 

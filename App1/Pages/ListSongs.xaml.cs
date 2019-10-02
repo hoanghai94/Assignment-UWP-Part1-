@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using App1.Entity;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +24,16 @@ namespace App1.Pages
     /// </summary>
     public sealed partial class ListSongs : Page
     {
+        private ObservableCollection<Song> ListSong
+        {
+            get => ListSong;
+            set => ListSong = value;
+        }
+        this.ListSongs = new ObservableCollection<Song>();
+
         public ListSongs()
         {
-            this.InitializeComponent();
+            
         }
     }
 }

@@ -39,7 +39,7 @@ namespace App1.Pages
         {
             ("home", typeof(MainPage)),
             ("music", typeof(MusicForm)),
-            ("listSong", typeof(ListSongs)),
+            ("listSong", typeof(ListSong)),
         };
 
         private void Home_OnLoaded(object sender, RoutedEventArgs e)

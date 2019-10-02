@@ -10,7 +10,7 @@
 
 namespace App1.Pages
 {
-    partial class ListSongs : 
+    partial class ListSong : 
         global::Windows.UI.Xaml.Controls.Page, 
         global::Windows.UI.Xaml.Markup.IComponentConnector,
         global::Windows.UI.Xaml.Markup.IComponentConnector2
