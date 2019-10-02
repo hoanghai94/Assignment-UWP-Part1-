@@ -36,23 +36,56 @@ namespace App1.Pages
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            var song = new Song
+            Boolean submit = true;
+
+            if (this.name.Text.Equals(""))
             {
-                name = this.name.Text,
-                description = this.description.Text,
-                singer = this.singer.Text,
-                author = this.author.Text,
-                thumbnail = this.thumbnail.Text,
-                link = this.link.Text
-            };
+                this.errorName.Text = "Name is required!";
+                submit = false;
+            }
+            else
+            {
+                submit = true;
+            }
+            if (this.thumbnail.Text.Equals(""))
+            {
+                this.errorThumbnail.Text = "Thumbnail is required!";
+                submit = false;
+            }
+            else
+            {
+                submit = true;
+            }
+            if (this.link.Text.Equals(""))
+            {
+                this.errorLink.Text = "Link is required!";
+                submit = false;
+            }
+            else
+            {
+                submit = true;
+            }
 
-            var httpClient = new HttpClient();
-            HttpContent content = new StringContent(JsonConvert.SerializeObject(song), Encoding.UTF8,
-                "application/json");
+            if (submit)
+            {
+                var song = new Song
+                {
+                    name = this.name.Text,
+                    description = this.description.Text,
+                    singer = this.singer.Text,
+                    author = this.author.Text,
+                    thumbnail = this.thumbnail.Text,
+                    link = this.link.Text
+                };
 
-            Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(ApiUrl, content);
-            String responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
-            Debug.WriteLine("Response: " + responseContent);
+                var httpClient = new HttpClient();
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(song), Encoding.UTF8,
+                    "application/json");
+
+                Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(ApiUrl, content);
+                String responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
+                Debug.WriteLine("Response: " + responseContent);
+            }
         }
     }
 }
