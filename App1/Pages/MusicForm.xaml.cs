@@ -34,7 +34,7 @@ namespace App1.Pages
             this.InitializeComponent();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonUpload_OnClick(object sender, RoutedEventArgs e)
         {
             Boolean submit = true;
 
@@ -86,6 +86,19 @@ namespace App1.Pages
                 String responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
                 Debug.WriteLine("Response: " + responseContent);
             }
+        }
+
+        private void ButtonReset_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.name.Text = string.Empty;
+            this.errorName.Text = string.Empty;
+            this.description.Text = string.Empty;
+            this.singer.Text = string.Empty;
+            this.author.Text = string.Empty;
+            this.thumbnail.Text = string.Empty;
+            this.errorThumbnail.Text = string.Empty;
+            this.link.Text = string.Empty;
+            this.errorLink.Text = string.Empty;
         }
     }
 }
